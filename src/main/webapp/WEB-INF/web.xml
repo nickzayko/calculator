@@ -33,6 +33,17 @@
         <url-pattern>*.jpeg</url-pattern>
     </servlet-mapping>
 
+    <filter>
+        <filter-name>filter</filter-name>
+        <filter-class>models.Filter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>filter</filter-name>
+        <url-pattern>/in/inputNumbers/plus</url-pattern>
+    </filter-mapping>
+
+
 
 
 </web-app>

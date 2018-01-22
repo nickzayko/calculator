@@ -47,16 +47,28 @@
 
 <%--таблица с цифрами--%>
 <table>
-    <c:forEach begin="0" end="9" step="1" varStatus="varStatus">
+    <c:forEach begin="0" end="8" step="1" varStatus="varStatus">
     <c:if test="${varStatus.current % 3 == 0}">
     <tr>
         </c:if>
         <td>
-            <form action="/in/inputNumbers" method="get"><input type="submit" value=${varStatus.index}  name="number">
-            </form>
+            <form action="/in/inputNumbers" method="get"><input type="submit" value=${varStatus.count}  name="number"></form>
         </td>
         </c:forEach>
+    <tr>
+        <td>
+            <form action="/in/inputNumbers" method="get"><input type="submit" value="0"  name="number"></form>
+        </td>
+        <td>
+            <form action="/in/inputNumbers" method="get"><input type="submit" value="."  name="number"></form>
+        </td>
+        <td>
+           <form action="/in/convertInputNumberValue" method="get"><button name="buttonConvert" value=${monitorValue}> +/- </button></form>
+        </td>
+    </tr>
 </table>
+<hr>
+<label> ${informationLabel} </label>
 <hr>
 
 

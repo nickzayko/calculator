@@ -23,48 +23,58 @@ public class CalculatorController {
     }
 
     @RequestMapping("/inputNumbers/{inputOperation}")
-    public String defineOperation (@PathVariable("inputOperation") String inputOperation, HttpServletRequest request){
-        operation = inputOperation;
-        if (operation.equals("plus")) {
-            calculator.setFirstNumber(Integer.parseInt(request.getParameter("buttonPlus")));
+    public String defineOperation (@PathVariable("inputOperation") String inputOperation, HttpServletRequest request) {
+        if (inputOperation.equals("plus")) {
+            calculator.setFirstNumber(Double.parseDouble(request.getParameter("buttonPlus")));
+            saveCurrentOperation(inputOperation);
+        } else {
+            if (inputOperation.equals("minus")) {
+                calculator.setFirstNumber(Double.parseDouble(request.getParameter("buttonMinus")));
+                saveCurrentOperation(inputOperation);
+            } else {
+                if (inputOperation.equals("multiply")) {
+                    calculator.setFirstNumber(Double.parseDouble(request.getParameter("buttonMultiply")));
+                    saveCurrentOperation(inputOperation);
+                } else {
+                    if (inputOperation.equals("divide")) {
+                        calculator.setFirstNumber(Double.parseDouble(request.getParameter("buttonDivide")));
+                        saveCurrentOperation(inputOperation);
+                    } else {
+                        if (inputOperation.equals("result")) {
+                            if (operation.equals("plus")) {
+                                calculator.setSecondNumber(Double.parseDouble(request.getParameter("buttonResult")));
+                                double resultOfCalculate = calculator.plus();
+                                request.setAttribute("monitorValue", String.valueOf(resultOfCalculate));
+                            } else {
+                                if (operation.equals("minus")) {
+                                    calculator.setSecondNumber(Double.parseDouble(request.getParameter("buttonResult")));
+                                    double resultOfCalculate = calculator.minus();
+                                    request.setAttribute("monitorValue", resultOfCalculate);
+                                } else {
+                                    if (operation.equals("multiply")) {
+                                        calculator.setSecondNumber(Double.parseDouble(request.getParameter("buttonResult")));
+                                        double resultOfCalculate = calculator.multiply();
+                                        request.setAttribute("monitorValue", resultOfCalculate);
+                                    } else {
+                                        if (operation.equals("divide")) {
+                                            calculator.setSecondNumber(Double.parseDouble(request.getParameter("buttonResult")));
+                                            double resultOfCalculate = calculator.divide();
+                                            request.setAttribute("monitorValue", resultOfCalculate);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
-        if (operation.equals("minus")) {
-            calculator.setFirstNumber(Integer.parseInt(request.getParameter("buttonMinus")));
-        }
-        if (operation.equals("multiply")) {
-            calculator.setFirstNumber(Integer.parseInt(request.getParameter("buttonMultiply")));
-        }
-        if (operation.equals("divide")) {
-            calculator.setFirstNumber(Integer.parseInt(request.getParameter("buttonDivide")));
-        }
-        combinationOfNumbers = "";
         return "result";
     }
 
-    @RequestMapping("/inputNumbers/result")
-    public String solution(HttpServletRequest request) {
-        if (operation.equals("plus")) {
-            calculator.setSecondNumber(Integer.parseInt(request.getParameter("buttonResult")));
-            double result = calculator.plus();
-            request.setAttribute("monitorValue", String.valueOf(result));
-        }
-
-        if (operation.equals("minus")) {
-            calculator.setSecondNumber(Integer.parseInt(request.getParameter("buttonResult")));
-            double result = calculator.minus();
-            request.setAttribute("monitorValue", result);
-        }
-        if (operation.equals("multiply")) {
-            calculator.setSecondNumber(Integer.parseInt(request.getParameter("buttonResult")));
-            double result = calculator.multiply();
-            request.setAttribute("monitorValue", result);
-        }
-        if (operation.equals("divide")) {
-            calculator.setSecondNumber(Integer.parseInt(request.getParameter("buttonResult")));
-            double result = calculator.divide();
-            request.setAttribute("monitorValue", result);
-        }
-        return "result";
+    private void saveCurrentOperation(String inputOperation) {
+        operation = inputOperation;
+        combinationOfNumbers = "";
     }
 
     @RequestMapping("/clean")
@@ -75,5 +85,15 @@ public class CalculatorController {
         return "result";
     }
 
-
+    @RequestMapping("/convertInputNumberValue")
+    public String convertInputNumberValue (HttpServletRequest request){
+        if (Double.parseDouble(combinationOfNumbers)>0){
+            combinationOfNumbers = "-" + combinationOfNumbers;
+            request.setAttribute("monitorValue", combinationOfNumbers);
+        } else {
+            combinationOfNumbers = combinationOfNumbers.substring(1);
+            request.setAttribute("monitorValue", combinationOfNumbers);
+        }
+    return "result";
+    }
 }
