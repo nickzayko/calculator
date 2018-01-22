@@ -38,6 +38,7 @@ public class Calculator {
     public double multiply (){
         return firstNumber*secondNumber;
     }
+
     public double divide (){
         return firstNumber/secondNumber;
     }

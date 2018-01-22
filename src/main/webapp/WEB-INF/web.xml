@@ -9,15 +9,9 @@
          version="3.0"
          metadata-complete="true">
 
-    <!--<web-app>-->
+
     <display-name>Archetype Created Web Application</display-name>
-    <!--<context-param>-->
-    <!--<param-name>contextConfigLocation</param-name>-->
-    <!--<param-value>/WEB-INF/applicationContext.xml</param-value>-->
-    <!--</context-param>-->
-    <!--<listener>-->
-    <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
-    <!--</listener>-->
+
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -34,16 +28,40 @@
     </servlet-mapping>
 
     <filter>
-        <filter-name>filter</filter-name>
-        <filter-class>models.Filter</filter-class>
+        <filter-name>filterPlus</filter-name>
+        <filter-class>filterControllers.OperationPlusFilter</filter-class>
     </filter>
-
     <filter-mapping>
-        <filter-name>filter</filter-name>
+        <filter-name>filterPlus</filter-name>
         <url-pattern>/in/inputNumbers/plus</url-pattern>
     </filter-mapping>
 
+    <filter>
+        <filter-name>filterMinus</filter-name>
+        <filter-class>filterControllers.OperationMinusFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>filterMinus</filter-name>
+        <url-pattern>/in/inputNumbers/minus</url-pattern>
+    </filter-mapping>
 
+    <filter>
+        <filter-name>filterMultiply</filter-name>
+        <filter-class>filterControllers.OperationMultiplyFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>filterMultiply</filter-name>
+        <url-pattern>/in/inputNumbers/multiply</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>filterDivide</filter-name>
+        <filter-class>filterControllers.OperationDivideFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>filterDivide</filter-name>
+        <url-pattern>/in/inputNumbers/divide</url-pattern>
+    </filter-mapping>
 
 
 </web-app>
