@@ -12,12 +12,15 @@ import java.io.IOException;
 @RequestMapping("/in")
 public class CalculatorController {
 
+
     Calculator calculator = new Calculator();
     public String combinationOfNumbers = "";
     public String operation = "";
 
     @RequestMapping("/inputNumbers")
     public String inputNumbers (HttpServletRequest request){
+
+
         combinationOfNumbers += request.getParameter("number");
         request.setAttribute("monitorValue", combinationOfNumbers);
         return "result";
@@ -122,11 +125,10 @@ public class CalculatorController {
         if (checkRequestParameter(combinationOfNumbers)) {
             if (Double.parseDouble(combinationOfNumbers) > 0) {
                 combinationOfNumbers = "-" + combinationOfNumbers;
-                request.setAttribute("monitorValue", combinationOfNumbers);
             } else {
                 combinationOfNumbers = combinationOfNumbers.substring(1);
-                request.setAttribute("monitorValue", combinationOfNumbers);
             }
+            request.setAttribute("monitorValue", combinationOfNumbers);
         } else {
             request.setAttribute("informationLabel", "Error of operation! Check input parameters!");
         }

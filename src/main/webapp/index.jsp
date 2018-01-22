@@ -5,6 +5,7 @@
 <title>Калькулятор</title>
 <body>
 <hr>
+<%--дисплей--%>
 <input type="text" size="25" name="monitor" value= ${monitorValue}>
 <hr>
 
@@ -13,12 +14,12 @@
     <tr>
         <td>
             <form action="/in/inputNumbers/plus" method="get">
-                <button name="buttonPlus" type="submit" value= ${monitorValue}> +</button>
+                <button name="buttonPlus" type="submit" value= ${monitorValue}> + </button>
             </form>
         </td>
         <td>
             <form action="/in/inputNumbers/minus" method="get">
-                <button name="buttonMinus" type="submit" value= ${monitorValue}> -</button>
+                <button name="buttonMinus" type="submit" value= ${monitorValue}> - </button>
             </form>
         </td>
         <td>
@@ -69,7 +70,7 @@
 </table>
 <hr>
 <label> ${informationLabel} </label>
-<hr>
+
 
 
 
