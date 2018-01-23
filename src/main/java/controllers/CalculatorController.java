@@ -12,25 +12,19 @@ import java.io.IOException;
 @RequestMapping("/in")
 public class CalculatorController {
 
-
     Calculator calculator = new Calculator();
     public String combinationOfNumbers = "";
     public String operation = "";
 
-
-
-
     @RequestMapping("/inputNumbers")
     public String inputNumbers(HttpServletRequest request) {
-
-
         combinationOfNumbers += request.getParameter("number");
         request.setAttribute("monitorValue", combinationOfNumbers);
         return "result";
     }
 
     @RequestMapping("/inputNumbers/{inputOperation}")
-    public String defineOperation (@PathVariable("inputOperation") String inputOperation, HttpServletRequest request) {
+    public String defineOperation(@PathVariable("inputOperation") String inputOperation, HttpServletRequest request) {
         if (inputOperation.equals("plus")) {
             calculator.setFirstNumber(Double.parseDouble(request.getParameter("buttonPlus")));
             saveCurrentOperation(inputOperation);
@@ -98,10 +92,12 @@ public class CalculatorController {
             }
         }
         return "result";
-
     }
 
-
+    private void saveCurrentOperation(String inputOperation) {
+        operation = inputOperation;
+        combinationOfNumbers = "";
+    }
 
     private boolean checkRequestParameter(String parameterFromRequest) {
         if (parameterFromRequest.equals("")) {
@@ -109,11 +105,6 @@ public class CalculatorController {
         } else {
             return true;
         }
-    }
-
-    private void saveCurrentOperation(String inputOperation) {
-        operation = inputOperation;
-        combinationOfNumbers = "";
     }
 
     @RequestMapping("/clean")
