@@ -58,7 +58,7 @@ public class CalculatorController {
                                     if (checkRequestParameter(parameterFromRequest)) {
                                         calculator.setSecondNumber(Double.parseDouble(parameterFromRequest));
                                         double resultOfCalculate = calculator.minus();
-                                        request.setAttribute("monitorValue", resultOfCalculate);
+                                        request.setAttribute("monitorValue", String.valueOf(resultOfCalculate));
                                     } else {
                                         request.setAttribute("informationLabel", "Error of operation! Check input parameters!");
                                     }
@@ -68,7 +68,7 @@ public class CalculatorController {
                                         if (checkRequestParameter(parameterFromRequest)) {
                                             calculator.setSecondNumber(Double.parseDouble(request.getParameter("buttonResult")));
                                             double resultOfCalculate = calculator.multiply();
-                                            request.setAttribute("monitorValue", resultOfCalculate);
+                                            request.setAttribute("monitorValue", String.valueOf(resultOfCalculate));
                                         } else {
                                             request.setAttribute("informationLabel", "Error of operation! Check input parameters!");
                                         }
@@ -78,7 +78,7 @@ public class CalculatorController {
                                             if (checkRequestParameter(parameterFromRequest)) {
                                                 calculator.setSecondNumber(Double.parseDouble(request.getParameter("buttonResult")));
                                                 double resultOfCalculate = calculator.divide();
-                                                request.setAttribute("monitorValue", resultOfCalculate);
+                                                request.setAttribute("monitorValue", String.valueOf(resultOfCalculate));
                                             } else {
                                                 request.setAttribute("informationLabel", "Error of operation! Check input parameters!");
                                             }
