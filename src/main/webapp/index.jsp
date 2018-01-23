@@ -10,6 +10,41 @@
 <hr>
 
 <%--таблица функционала--%>
+<%--<table>--%>
+    <%--<tr>--%>
+        <%--<td>--%>
+            <%--<form action="/in/inputNumbers/plus" method="get">--%>
+                <%--<button name="buttonPlus" type="submit" value= ${monitorValue}> + </button>--%>
+            <%--</form>--%>
+        <%--</td>--%>
+        <%--<td>--%>
+            <%--<form action="/in/inputNumbers/minus" method="get">--%>
+                <%--<button name="buttonMinus" type="submit" value= ${monitorValue}> - </button>--%>
+            <%--</form>--%>
+        <%--</td>--%>
+        <%--<td>--%>
+            <%--<form action="/in/inputNumbers/multiply" method="get">--%>
+                <%--<button name="buttonMultiply" type="submit" value= ${monitorValue}> * </button>--%>
+            <%--</form>--%>
+        <%--</td>--%>
+        <%--<td>--%>
+            <%--<form action="/in/inputNumbers/divide" method="get">--%>
+                <%--<button name="buttonDivide" type="submit" value= ${monitorValue}> / </button>--%>
+            <%--</form>--%>
+        <%--</td>--%>
+        <%--<td>--%>
+            <%--<form action="/in/inputNumbers/result">--%>
+                <%--<button name="buttonResult" type="submit" value= ${monitorValue}> = </button>--%>
+            <%--</form>--%>
+        <%--</td>--%>
+        <%--<td>--%>
+            <%--<form action="/in/clean">--%>
+                <%--<button name="buttonResult" type="submit" value= ${monitorValue}> Clean </button>--%>
+            <%--</form>--%>
+        <%--</td>--%>
+    <%--</tr>--%>
+<%--</table>--%>
+<%--<hr>--%>
 <table>
     <tr>
         <td>

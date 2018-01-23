@@ -17,8 +17,11 @@ public class CalculatorController {
     public String combinationOfNumbers = "";
     public String operation = "";
 
+
+
+
     @RequestMapping("/inputNumbers")
-    public String inputNumbers (HttpServletRequest request){
+    public String inputNumbers(HttpServletRequest request) {
 
 
         combinationOfNumbers += request.getParameter("number");
@@ -98,8 +101,10 @@ public class CalculatorController {
 
     }
 
+
+
     private boolean checkRequestParameter(String parameterFromRequest) {
-        if (parameterFromRequest.equals("")){
+        if (parameterFromRequest.equals("")) {
             return false;
         } else {
             return true;
@@ -112,7 +117,7 @@ public class CalculatorController {
     }
 
     @RequestMapping("/clean")
-    public String clean (HttpServletRequest request){
+    public String clean(HttpServletRequest request) {
         combinationOfNumbers = "";
         operation = "";
         request.setAttribute("monitorValue", "");
@@ -120,7 +125,7 @@ public class CalculatorController {
     }
 
     @RequestMapping("/convertInputNumberValue")
-    public String convertInputNumberValue (HttpServletRequest request) {
+    public String convertInputNumberValue(HttpServletRequest request) {
         combinationOfNumbers = request.getParameter("buttonConvert");
         if (checkRequestParameter(combinationOfNumbers)) {
             if (Double.parseDouble(combinationOfNumbers) > 0) {
