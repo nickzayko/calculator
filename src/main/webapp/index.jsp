@@ -14,32 +14,32 @@
     <tr>
         <td>
             <form action="/in/inputNumbers/plus" method="get">
-                <button name="buttonPlus" type="submit" value= ${monitorValue}> +</button>
+                <button name="buttonPlus" type="submit" value= ${monitorValue}> + </button>
             </form>
         </td>
         <td>
             <form action="/in/inputNumbers/minus" method="get">
-                <button name="buttonMinus" type="submit" value= ${monitorValue}> -</button>
+                <button name="buttonMinus" type="submit" value= ${monitorValue}> - </button>
             </form>
         </td>
         <td>
             <form action="/in/inputNumbers/multiply" method="get">
-                <button name="buttonMultiply" type="submit" value= ${monitorValue}> *</button>
+                <button name="buttonMultiply" type="submit" value= ${monitorValue}> * </button>
             </form>
         </td>
         <td>
             <form action="/in/inputNumbers/divide" method="get">
-                <button name="buttonDivide" type="submit" value= ${monitorValue}> /</button>
+                <button name="buttonDivide" type="submit" value= ${monitorValue}> / </button>
             </form>
         </td>
         <td>
             <form action="/in/inputNumbers/result">
-                <button name="buttonResult" type="submit" value= ${monitorValue}> =</button>
+                <button name="buttonResult" type="submit" value= ${monitorValue}> = </button>
             </form>
         </td>
         <td>
             <form action="/in/clean">
-                <button name="buttonResult" type="submit" value= ${monitorValue}> Clean</button>
+                <button name="buttonResult" type="submit" value= ${monitorValue}> Clean </button>
             </form>
         </td>
     </tr>
@@ -66,7 +66,7 @@
         </td>
         <td>
             <form action="/in/convertInputNumberValue" method="get">
-                <button name="buttonConvert" value=${monitorValue}> +/-</button>
+                <button name="buttonConvert" value=${monitorValue}> +/- </button>
             </form>
         </td>
     </tr>
