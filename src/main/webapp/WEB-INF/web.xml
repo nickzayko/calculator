@@ -37,14 +37,6 @@
         <location>/WEB-INF/pages/500.jsp</location>
     </error-page>
 
-    <filter>
-        <filter-name>filterPlus</filter-name>
-        <filter-class>filterControllers.OperationPlusFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>filterPlus</filter-name>
-        <url-pattern>/in/inputNumbers/plus</url-pattern>
-    </filter-mapping>
 
     <filter>
         <filter-name>filterMinus</filter-name>
@@ -71,6 +63,15 @@
     <filter-mapping>
         <filter-name>filterDivide</filter-name>
         <url-pattern>/in/inputNumbers/divide</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>filterPlus</filter-name>
+        <filter-class>filterControllers.OperationPlusFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>filterPlus</filter-name>
+        <url-pattern>/in/inputNumbers/plus</url-pattern>
     </filter-mapping>
 
 </web-app>
